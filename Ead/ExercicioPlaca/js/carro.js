@@ -7,15 +7,15 @@ function placa() {
   );
 
   if (rodizio <= 3) {
-    alert("Proibido as: Segunda-Feiras");
+    alert("Proibido as: Segundas-Feiras");
   } else {
     if (rodizio > 9) {
       alert("Digite certo o numero final de sua placa");
     } else {
       if (rodizio >= 6) {
-        alert("Proibido as: Quarta-Feiras");
+        alert("Proibido as: Quartas-Feiras");
       } else {
-        alert("Proibido as: Sexta-Feiras");
+        alert("Proibido as: Sextas-Feiras");
       }
     }
   }
