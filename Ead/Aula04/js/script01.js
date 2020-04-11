@@ -1,39 +1,61 @@
-function dataExemplo() {
-  var dt = prompt("Digite a data completa do seu aniversário");
-  //  1  2   3  4   5   6   7  8  9  10 Quantidade
+function calculaCPF() {
+  var cpfUsuario;
+  var cpf9;
+  var peso10 = 10;
+  var peso11 = 11;
+  var resultado = 0;
+  var resto;
 
-  //  2  3  /   0   4   /   2  0  0  0  Data
+  //   cpfUsuario = prompt("Digite o seu cpf");
+  cpfUsuario = document.getElementById("cpf").value;
+  /*
+    Para pegar os 9 primeiros digitos do cpf iremos usar o 
+    comando substring, onde você consegue dizer quais 
+    são os caracteres que deseja pegar
+    */
+  cpf9 = cpfUsuario.substring(0, 9);
+  //   console.log(cpf9);
+  /*
+  Para pegar um número por vez do cpf iremos usar
+  o index destes números, ou seja, sua posição
+  */
+  //   console.log(cpf9[0]);
 
-  //  0  1  2   3   4   5   6  7  8  9  Posição
+  for (var p = 0; p <= 8; p++) {
+    console.log(cpf9[p] + " peguei este número");
+    resultado += cpf9[p] * peso10;
+    peso10--;
+  }
+  //   console.log(resultado);
+  resto = resultado % 11;
 
-  if (dt.length < 10 || dt.length > 10) {
-    alert("Você deve inserir a data completa");
+  if (resto < 2) {
+    cpf9 += "0";
   } else {
-    var dia = dt.substring(0, 2);
-    var mes = dt.substring(3, 5);
-    var ano = dt.substring(6, 10);
-    console.log(mes);
+    cpf9 += "" + (11 - resto);
+  }
+  //   console.log(cpf9);
+  //zerando a variável resultado
+  resultado = 0;
 
-    switch (mes) {
-      case "01":
-        mes = "Janeiro";
-        break;
-      case "02":
-        mes = "Fevereiro";
-        break;
-      case "03":
-        mes = "Março";
-        break;
-      case "04":
-        mes = "Abril";
-        break;
-      case "05":
-        mes = "Maio";
-        break;
-      default:
-        mes = "Inexistente";
-        break;
-    }
-    alert("Você nasceu em " + dia + " de " + mes + " de " + ano);
+  for (var p = 0; p <= 9; p++) {
+    // console.log(cpf9[p] + " peguei este número");
+    resultado += cpf9[p] * peso11;
+    peso11--;
+  }
+  //   console.log(resultado);
+  resto = resultado % 11;
+
+  if (resto < 2) {
+    cpf9 += "0";
+  } else {
+    cpf9 += "" + (11 - resto);
+  }
+  //   console.log(cpf9);
+
+  if (cpfUsuario == cpf9) {
+    alert("Cpf válido");
+  } else {
+    alert("Cpf inválido");
   }
 }

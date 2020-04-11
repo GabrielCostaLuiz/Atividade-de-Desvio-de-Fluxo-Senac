@@ -1,34 +1,27 @@
-// As estruturas de repetição repetem um trecho de cógido específico
-//For - While - Do While
-/*
- 1 - Início da variável
- 2 - Condição para repetição
- 3 - Corpo de execução
- 4 - Incrementação ou decrementação:
-        x++ -> incrementação de 1
-        x-- -> decrementação de 1
+function array1() {
+  var cidades = ["São Paulo", "Leme", "Campinas", "Salvador"];
+  console.log(cidades);
 
-        x+= 3 -> incrementação de valor 3
-        x -= 3 -> decrementação de valor 3
-*/
-function contador() {
-  for (var i = 1; i <= 10; i++) {
-    console.log(i);
+  for (var i = 0; i <= 3; i++) {
+    console.log(cidades[i] + " => Cidade");
   }
 }
 
-function contadorWhile() {
-  var i = 1;
-  while (i <= 10) {
-    console.log(i);
-    i++;
-  }
-}
+function array2() {
+  var cidades = [
+    ["Campinas", "Cidade de SP", "500000"],
+    ["Leme", "Cidade de SP", "200000"],
+    ["Salvador", "Cidade de BA", "500000"]
+  ];
+  console.log(cidades);
 
-function contadorDoWhile() {
-  var i = 0;
-  do {
-    console.log(i);
-    i++;
-  } while (i <= 10);
+  var exibir = "";
+  for (var i = 0; i <= 2; i++) {
+    exibir += "<div>";
+    for (var j = 0; j <= 2; j++) {
+      exibir += "<p>" + cidades[i][j] + "</p>";
+    }
+    exibir += "</div>";
+  }
+  document.getElementById("saida").innerHTML = exibir;
 }
